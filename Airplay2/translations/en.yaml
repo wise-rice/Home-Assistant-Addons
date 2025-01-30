@@ -6,12 +6,47 @@ configuration:
   offset:
     name: Playback offset
     description: >-
-      Can be used to adjust syncing issues, can also be set to negative values.
+      Can be used to adjust syncing issues, can also be set to negative values (if the processing or transmission to the speaker is slow, use negative values. e.g. "-0.25". Default is "0.0"
   interpolation:
     name: Interpolation
     description: >-
       Leave on "auto" or check the Shairport-sync docs for more info. Alternatives are "basic" or "soxr". Choose "soxr" only if you have a reasonably fast x86 processor (otherwise, there might be problems with the buffer, so no sound or dropouts). "soxr" might not work on ARM processors. 
-
+  default_airplay_volume: 
+    name: Default Airplay Volume
+    description: >-
+      Will set the standard volume for a new session. Default is "-24.0"
+  volume_max_db:
+    name: Maximum Volume
+    description: >-
+      Must have a decimal point in it, to set the maximum volume [in dB]. E.g. "-10.0". Default is "0.0". 
+      The setting must be in the mixers range (0.0 to -96.2 for the standard software mixer). 
+      If you choose the hardware mixer (below) the range is untested (0.0 to -??.?) 
+  volume_control_combined_hardware_priority:
+    name: Prioritize Hardware Volume Control
+    description: >-
+      Default is "no", which will only use (lossy) software volume control. 
+      Setting "yes" will extend the volume range by combining the hardware mixer (used first) with the software mixer (used later).
+  output_backend:
+    name: Output Backend
+    description:  >-
+      default is "pa" for PulseAudio
+  drift_tolerance_in_seconds:
+    name: Drift Tolerance
+    description:  >-
+      Default is "0.002" seconds
+  resync_threshold_in_seconds:
+    name: Resync Threshold
+    description:  >-
+      Default is "0.050" seconds
+  resync_recovery_time_in_seconds:
+    name: Resync Recovery Time
+    description: >-
+      Default is "0.100" seconds
+  audio_backend_buffer_desired_length_in_seconds:
+    name: Buffer Length
+    description: >-
+      Default is 0.2 seconds in the alsa backend, 0.35 seconds in the pa backend and 1.0 seconds otherwise.
+      If set too small, buffer underflow occurs on low-powered machines. Too long and the response time to volume changes becomes annoying.
   enabled:
     name: Enable MQTT
     description: >-
