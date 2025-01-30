@@ -25,6 +25,8 @@ options:
   resync_threshold_in_seconds: "0.050"
   resync_recovery_time_in_seconds: "0.100"
   audio_backend_buffer_desired_length_in_seconds: "0.35"
+  output_rate: "auto"
+  output_format: "auto"
   enabled: "no"
   mqtt_host: "core-mosquitto"
   mqtt_username: "user"
