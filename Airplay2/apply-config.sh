@@ -90,6 +90,27 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target 54th line)
 sed -i "54s/.*/        default_airplay_volume = $quoted_value;/" "$config_file"
 
+################################################### Maximum Volume ###################################################
+
+# Get arguments
+json_key="volume_max_db"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 54th line)
+sed -i "39s/.*/        volume_max_db = $quoted_value;/" "$config_file"
+
 ################################################### Use Hardware Volume Control ###################################################
 
 # Get arguments
@@ -110,6 +131,27 @@ quoted_value="\"$escaped_value\""
 
 # Replace line in config file using sed (target 52nd line)
 sed -i "52s/.*/        volume_control_combined_hardware_priority = $quoted_value;/" "$config_file"
+
+################################################### Output Backend ###################################################
+
+# Get arguments
+json_key="output_backend"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target line number where output_backend is located)
+sed -i "19s/.*/        output_backend = $quoted_value;/" "$config_file"
 
 ################################################### drift_tolerance_in_seconds ###################################################
 
@@ -174,10 +216,10 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target line number where output_backend is located)
 sed -i "31s/.*/        resync_recovery_time_in_seconds = $quoted_value;/" "$config_file"
 
-################################################### output_backend ###################################################
+################################################### audio_backend_buffer_desired_length_in_seconds ###################################################
 
 # Get arguments
-json_key="output_backend"
+json_key="audio_backend_buffer_desired_length_in_seconds"
 
 # Extract value from JSON using jq
 value=$(jq -r ".$json_key" "$json_file")
@@ -193,7 +235,7 @@ escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
 # Replace line in config file using sed (target line number where output_backend is located)
-sed -i "19s/.*/        output_backend = $quoted_value;/" "$config_file"
+sed -i "76s/.*/        audio_backend_buffer_desired_length_in_seconds = $quoted_value;/" "$config_file"
 
 ################################################### mqtt setting ###################################################
 
