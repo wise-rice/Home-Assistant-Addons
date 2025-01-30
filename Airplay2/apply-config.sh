@@ -111,6 +111,48 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target 54th line)
 sed -i "39s/.*/        volume_max_db = $quoted_value;/" "$config_file"
 
+################################################### Name of the Mixer ###################################################
+
+# Get arguments
+json_key="mixer_control_name"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 54th line)
+sed -i "126s/.*/        mixer_control_name = $quoted_value;/" "$config_file"
+
+################################################### Output Device Index (Mixer Control) ###################################################
+
+# Get arguments
+json_key="mixer_control_index"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 54th line)
+sed -i "127s/.*/        mixer_control_index = $quoted_value;/" "$config_file"
+
 ################################################### Use Hardware Volume Control ###################################################
 
 # Get arguments
