@@ -69,7 +69,7 @@ configuration:
       This is done using simple sample replication and without interpolation.
       Untested (and probably impossible or interpolated) are 48000, 96000 and 192000
   output_format:
-    name: Output Bit Depth
+    name: Output Bit Depth Format
     description: >-
       Default is "auto" which uses 16 bit (and the endianness matching that of your processor)
       Can also be "U8", "S8", "S16", "S16_LE", "S16_BE", "S24", "S24_LE", "S24_BE", "S24_3LE", "S24_3BE", "S32", "S32_LE" or "S32_BE" but the device must have the the capability to process it.
