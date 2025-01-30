@@ -11,7 +11,20 @@ configuration:
   interpolation:
     name: Interpolation
     description: >-
-      Default is "auto". Alternatives are "basic" or "soxr". Choose "soxr" only if you have a fast processor (otherwise, the CPU will be overloaded and there might be problems with the buffer, so no sound or dropouts). "soxr" might not work on ARM processors. 
+      Default is "auto". Alternatives are "basic" or "soxr".
+      Choose "soxr" only if you have a fast processor (otherwise, the CPU will be overloaded and there might be problems with the buffer, so no sound or dropouts). "soxr" might not work on ARM processors. 
+  use_precision_timing:
+    name: Precision timing
+    description: >-
+      Use this optional advanced setting to control how Shairport Sync gathers timing information.
+      Default is "auto". If the output device is a real hardware device, precision timing will be used.
+      Choose "no" for more compatible standard timing, choose "yes" to force the use of precision timing, which may cause problems.
+  disable_standby_mode:
+    name: Disable Standby Mode
+    description: >-
+      Default is "never", but only for backwards compatibility.
+      Setting "always" prevents the DAC from entering the standby mode.
+      Setting "auto" prevents standby mode while music is playing (shairport-sync is active). 
   default_airplay_volume: 
     name: Default Airplay Volume
     description: >-
