@@ -9,3 +9,7 @@
 To install addons offered in this repository, you must first add its repository URL to your Home Assistant instance. To do so, add the repository URL below to the Home Assistant add-on store:
 
 `https://github.com/wise-rice/Home-Assistant-Addons`
+
+This is a testing fork of JohannVR's amazing work
+
+`https://github.com/JohannVR/JohannVRs-Home-Assistant-Addons`
