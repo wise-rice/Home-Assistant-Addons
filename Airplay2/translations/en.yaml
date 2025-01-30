@@ -14,7 +14,7 @@ configuration:
   default_airplay_volume: 
     name: Default Airplay Volume
     description: >-
-      Will set the standard volume for a new session. Default is "-24.0"
+      Will set the standard volume for a new session (if the last session was loud). Default is "-24.0"
   volume_max_db:
     name: Maximum Volume
     description: >-
@@ -29,19 +29,22 @@ configuration:
   output_backend:
     name: Output Backend
     description:  >-
-      default is "pa" for PulseAudio
+      default is "pa" for PulseAudio. Can also be set to "alsa"
   drift_tolerance_in_seconds:
     name: Drift Tolerance
     description:  >-
-      Default is "0.002" seconds
+      Default is "0.002" seconds.
+      Alow a timing error of this number of seconds of drift away from exact synchronisation before attempting to correct it
   resync_threshold_in_seconds:
     name: Resync Threshold
     description:  >-
       Default is "0.050" seconds
+      A synchronisation error greater than this number of seconds will cause resynchronisation; 0.0 disables it
   resync_recovery_time_in_seconds:
     name: Resync Recovery Time
     description: >-
       Default is "0.100" seconds
+      Allow this extra time to recover after a late resync. Increase the value, possibly to 0.5, in a virtual machine.
   audio_backend_buffer_desired_length_in_seconds:
     name: Buffer Length
     description: >-
