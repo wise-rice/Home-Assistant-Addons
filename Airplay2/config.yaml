@@ -1,7 +1,7 @@
-name: "Airplay 2 for Home Assistant"
+name: "Airplay 2 for Home Assistant - wise_rice"
 description: "Adds Airplay 2 capabilities to Home Assistant"
-url: https://github.com/JohannVR/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2
-version: "0.1.4"
+url: https://github.com/wise-rice/Home-Assistant-Addons/tree/main/Airplay2
+version: "0.0.1.4"
 slug: "airplay2"
 init: false
 arch:
@@ -13,7 +13,7 @@ host_network: true
 audio: true
 options:
   airplay_name: "Hass.io"
-  offset: "0.0"
+  offset: "-0.25"
   interpolation: "auto"
   enabled: "no"
   mqtt_host: "core-mosquitto"
@@ -29,4 +29,4 @@ schema:
   mqtt_username: str
   mqtt_password: password
   mqtt_publish_cover: str
-image: "johannvr/ha-airplay2-{arch}-debian"
+image: "wise-rice/ha-airplay2-{arch}-debian"
