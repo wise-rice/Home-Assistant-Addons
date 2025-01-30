@@ -44,4 +44,4 @@ schema:
   mqtt_username: str
   mqtt_password: password
   mqtt_publish_cover: str
-image: "wise-rice/ha-airplay2-{arch}-debian"
+image: "johannvr/ha-airplay2-{arch}-debian"
