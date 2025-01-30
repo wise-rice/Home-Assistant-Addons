@@ -1,11 +1,11 @@
-# JohannVR's Home Assistant Add-ons
+# wise_rice Fork of JohannVR's Home Assistant Add-ons
 
 ## Addons
 
-* [Airplay2](https://github.com/JohannVR/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2Alpine) - use Home Assistant Host as Airplay 2 receiver. ([Debian-version](https://github.com/JohannVR/JohannVRs-Home-Assistant-Addons/tree/main/Airplay2))
+* [Airplay2](https://github.com/wise-rice/Home-Assistant-Addons/tree/main/Airplay2) - use Home Assistant Host as Airplay 2 receiver. Debian Version
 
 ## Installation
 
 To install addons offered in this repository, you must first add its repository URL to your Home Assistant instance. To do so, add the repository URL below to the Home Assistant add-on store:
 
-`https://github.com/JohannVR/JohannVRs-Home-Assistant-Addons`
+`https://github.com/wise-rice/Home-Assistant-Addons`
