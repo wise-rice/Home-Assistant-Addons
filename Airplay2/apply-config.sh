@@ -237,6 +237,48 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target line number where output_backend is located)
 sed -i "76s/.*/        audio_backend_buffer_desired_length_in_seconds = $quoted_value;/" "$config_file"
 
+################################################### Output Sampling Rate ###################################################
+
+# Get arguments
+json_key="output_rate"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target line number where output_backend is located)
+sed -i "130s/.*/        output_rate = $quoted_value;/" "$config_file"
+
+################################################### Output Bit Depth Format ###################################################
+
+# Get arguments
+json_key="output_format"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target line number where output_backend is located)
+sed -i "131s/.*/        output_format = $quoted_value;/" "$config_file"
+
 ################################################### mqtt setting ###################################################
 
 # Get arguments
