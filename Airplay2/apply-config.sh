@@ -87,7 +87,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 18th line)
+# Replace line in config file using sed (target 140th line)
 sed -i "140s/.*/        use_precision_timing =  $quoted_value/" "$config_file"
 
 ################################################### Disable Standby ###################################################
@@ -108,7 +108,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 18th line)
+# Replace line in config file using sed (target 142th line)
 sed -i "142s/.*/        disable_standby_mode =  $quoted_value/" "$config_file"
 
 ################################################### Default Airplay Volume ###################################################
@@ -150,7 +150,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 54th line)
+# Replace line in config file using sed (target 39th line)
 sed -i "39s/.*/        volume_max_db = $quoted_value;/" "$config_file"
 
 ################################################### Loud Volume Threshold ###################################################
@@ -171,7 +171,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 54th line)
+# Replace line in config file using sed (target 63th line)
 sed -i "63s/.*/        high_threshold_airplay_volume = $quoted_value;/" "$config_file"
 
 ################################################### Name of the Mixer ###################################################
@@ -192,7 +192,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 54th line)
+# Replace line in config file using sed (target 126th line)
 sed -i "126s/.*/        mixer_control_name = $quoted_value;/" "$config_file"
 
 ################################################### Output Device Index (Mixer Control) ###################################################
@@ -213,7 +213,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 54th line)
+# Replace line in config file using sed (target 127th line)
 sed -i "127s/.*/        mixer_control_index = $quoted_value;/" "$config_file"
 
 ################################################### Use Hardware Volume Control ###################################################
@@ -255,7 +255,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 19th line)
 sed -i "19s/.*/        output_backend = $quoted_value;/" "$config_file"
 
 ################################################### drift_tolerance_in_seconds ###################################################
@@ -276,7 +276,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 29th line)
 sed -i "29s/.*/        drift_tolerance_in_seconds = $quoted_value;/" "$config_file"
 
 ################################################### resync_threshold_in_seconds ###################################################
@@ -297,7 +297,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 30th line)
 sed -i "30s/.*/        resync_threshold_in_seconds = $quoted_value;/" "$config_file"
 
 ################################################### resync_recovery_time_in_seconds ###################################################
@@ -318,7 +318,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 31 line)
 sed -i "31s/.*/        resync_recovery_time_in_seconds = $quoted_value;/" "$config_file"
 
 ################################################### audio_backend_buffer_desired_length_in_seconds ###################################################
@@ -339,7 +339,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 76th line)
 sed -i "76s/.*/        audio_backend_buffer_desired_length_in_seconds = $quoted_value;/" "$config_file"
 
 ################################################### Output Sampling Rate ###################################################
@@ -360,7 +360,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 130th line)
 sed -i "130s/.*/        output_rate = $quoted_value;/" "$config_file"
 
 ################################################### Output Bit Depth Format ###################################################
@@ -381,7 +381,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target line number where output_backend is located)
+# Replace line in config file using sed (target 131st line)
 sed -i "131s/.*/        output_format = $quoted_value;/" "$config_file"
 
 ################################################### mqtt setting ###################################################
@@ -402,7 +402,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 271st line)
+# Replace line in config file using sed (target 273rd line)
 sed -i "273s/.*/        enabled = $quoted_value/" "$config_file"
 
 ################################################### mqtt hostname ###################################################
@@ -423,7 +423,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 272nd line)
+# Replace line in config file using sed (target 274th line)
 sed -i "274s/.*/        hostname = $quoted_value/" "$config_file"
 
 ################################################### mqtt username ###################################################
@@ -444,7 +444,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 274th line)
+# Replace line in config file using sed (target 276th line)
 sed -i "276s/.*/        username = $quoted_value/" "$config_file"
 
 ################################################### mqtt password ###################################################
@@ -465,7 +465,7 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 275th line)
+# Replace line in config file using sed (target 277th line)
 sed -i "277s/.*/        password = $quoted_value/" "$config_file"
 
 ################################################### mqtt publish cover ###################################################
@@ -486,13 +486,8 @@ fi
 escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
 quoted_value="\"$escaped_value\""
 
-# Replace line in config file using sed (target 287th line)
+# Replace line in config file using sed (target 289th line)
 sed -i "289s/.*/        publish_cover = $quoted_value/" "$config_file"
-
-################################################### audio backend ###################################################
-
-# Replace line in config file using sed (target 19th line)
-sed -i "19s/.*/        output_backend = \"pa\"/" "$config_file"
 
 ##########################
 fi
