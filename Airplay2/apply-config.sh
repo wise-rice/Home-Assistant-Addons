@@ -69,6 +69,70 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target 18th line)
 sed -i "18s/.*/        interpolation =  $quoted_value/" "$config_file"
 
+################################################### Default Airplay Volume ###################################################
+
+# Get arguments
+json_key="default_airplay_volume"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 54th line)
+sed -i "54s/.*/        default_airplay_volume = $quoted_value;/" "$config_file"
+
+
+################################################### Default Airplay Volume ###################################################
+
+# Get arguments
+json_key="default_airplay_volume"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 54th line)
+sed -i "54s/.*/        default_airplay_volume = $quoted_value;/" "$config_file"
+
+################################################### Use Hardware Volume Control ###################################################
+
+# Get arguments
+json_key="volume_control_combined_hardware_priority"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 52nd line)
+sed -i "52s/.*/        volume_control_combined_hardware_priority = $quoted_value;/" "$config_file"
+
 ################################################### mqtt setting ###################################################
 
 # Get arguments
