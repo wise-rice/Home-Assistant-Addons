@@ -11,7 +11,7 @@ configuration:
   interpolation:
     name: Interpolation
     description: >-
-      Leave on "auto" or check the Shairport-sync docs for more info. Alternatives are "basic" or "soxr". Choose "soxr" only if you have a reasonably fast x86 processor (otherwise, there might be problems with the buffer, so no sound or dropouts). "soxr" might not work on ARM processors. 
+      Default is "auto". Alternatives are "basic" or "soxr". Choose "soxr" only if you have a fast processor (otherwise, the CPU will be overloaded and there might be problems with the buffer, so no sound or dropouts). "soxr" might not work on ARM processors. 
   default_airplay_volume: 
     name: Default Airplay Volume
     description: >-
@@ -21,7 +21,17 @@ configuration:
     description: >-
       Must have a decimal point in it, to set the maximum volume [in dB]. E.g. "-10.0". Default is "0.0". 
       The setting must be in the mixers range (0.0 to -96.2 for the standard software mixer). 
-      If you choose the hardware mixer (below) the range is untested (0.0 to -??.?) 
+      If you choose the hardware mixer (below) the range is untested (0.0 to -??.?)
+  mixer_control_name:
+    name: Name of the Mixer
+    description: >-
+      The name of the mixer to use to adjust output volume. Default "Headphone". If not specified, no mixer is used and volume in adjusted in software.
+      If you use a USB DAC you probably want to use "PCM" to enable the hardware mixer for volume control.
+  mixer_control_index:
+    name: Output Device Index (Mixer control)
+    description: >-
+      Default "0". If you have only one Audio device in your machine this will probably be on index "0".
+      If you use an additional device (e.g. a USB-DAC) it might be on index "1". You can check the index in in the Terminal using "ha audio info".
   volume_control_combined_hardware_priority:
     name: Prioritize Hardware Volume Control
     description: >-
@@ -51,6 +61,19 @@ configuration:
     description: >-
       Default is 0.2 seconds in the alsa backend, 0.35 seconds in the pa backend and 1.0 seconds otherwise.
       If set too small, buffer underflow occurs on low-powered machines. Too long and the response time to volume changes becomes annoying.
+  output_rate:
+    name: Output Sampling Rate
+    description: >-
+      Default is "auto" which uses 44100 hz
+      Can also be multiples of 44100 which means 88200, 176400 or 352800, but the output device must have the capability to process it.
+      This is done using simple sample replication and without interpolation.
+      Untested (and probably impossible or interpolated) are 48000, 96000 and 192000
+  output_format:
+    name: Output Bit Depth
+    description: >-
+      Default is "auto" which uses 16 bit (and the endianness matching that of your processor)
+      Can also be "U8", "S8", "S16", "S16_LE", "S16_BE", "S24", "S24_LE", "S24_BE", "S24_3LE", "S24_3BE", "S32", "S32_LE" or "S32_BE" but the device must have the the capability to process it.
+      If you are using software volume control and can take advantage of 24-bit or 32-bit DACs. Dithering can occur on a larger sample, making the noise floor very much lower.
   enabled:
     name: Enable MQTT
     description: >-
