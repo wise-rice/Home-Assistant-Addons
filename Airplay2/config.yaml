@@ -22,6 +22,7 @@ options:
   drift_tolerance_in_seconds: "0.002"
   resync_threshold_in_seconds: "0.050"
   resync_recovery_time_in_seconds: "0.100"
+  audio_backend_buffer_desired_length_in_seconds: "0.35"
   enabled: "no"
   mqtt_host: "core-mosquitto"
   mqtt_username: "user"
