@@ -10,7 +10,8 @@ configuration:
   interpolation:
     name: Interpolation
     description: >-
-      Leave on "auto" or check the Shairport-sync docs for more info.
+      Leave on "auto" or check the Shairport-sync docs for more info. Alternatives are "basic" or "soxr". Choose "soxr" only if you have a reasonably fast processor (otherwise, there might be problems with the buffer, so no sound or dropouts) 
+
   enabled:
     name: Enable MQTT
     description: >-
@@ -18,4 +19,4 @@ configuration:
   mqtt_publish_cover:
     name: MQTT publish cover
     description: >-
-      When set to yes, it allows MQTT to transmit the cover (might lead to more load on the MQTT borker)
+      When set to yes, it allows MQTT to transmit the cover (might lead to more load on the MQTT broker)
