@@ -16,6 +16,7 @@ options:
   offset: "-0.25"
   interpolation: "auto"
   default_airplay_volume: "-24.0"
+  volume_max_db: "0.0"
   volume_control_combined_hardware_priority: "no"
   output_backend: "pa"
   drift_tolerance_in_seconds: "0.002"
