@@ -69,6 +69,48 @@ quoted_value="\"$escaped_value\""
 # Replace line in config file using sed (target 18th line)
 sed -i "18s/.*/        interpolation =  $quoted_value/" "$config_file"
 
+################################################### ALSA Precision Timing ###################################################
+
+# Get arguments
+json_key="use_precision_timing"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 18th line)
+sed -i "140s/.*/        use_precision_timing =  $quoted_value/" "$config_file"
+
+################################################### Disable Standby ###################################################
+
+# Get arguments
+json_key="disable_standby_mode"
+
+# Extract value from JSON using jq
+value=$(jq -r ".$json_key" "$json_file")
+
+# Check if value extraction was successful
+if [ $? -ne 0 ]; then
+  echo "Error: Could not extract value from JSON using key '$json_key'."
+  exit 1
+fi
+
+# Escape backslashes and dollar signs for safe sed usage
+escaped_value=$(echo "$value" | sed 's/\\//g' | sed 's/\$/\\\\$/g')
+quoted_value="\"$escaped_value\""
+
+# Replace line in config file using sed (target 18th line)
+sed -i "142s/.*/        disable_standby_mode =  $quoted_value/" "$config_file"
+
 ################################################### Default Airplay Volume ###################################################
 
 # Get arguments
