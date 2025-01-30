@@ -15,6 +15,8 @@ options:
   airplay_name: "Hass.io"
   offset: "-0.25"
   interpolation: "auto"
+  use_precision_timing: "auto"
+  disable_standby_mode: "never"
   default_airplay_volume: "-24.0"
   volume_max_db: "0.0"
   high_threshold_airplay_volume: "-16.0"
